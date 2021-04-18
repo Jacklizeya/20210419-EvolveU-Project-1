@@ -26,7 +26,7 @@ export default async function showTests() {
     )
 
 //    try{  
-    let response = await fetch("http://localhost:5000/tests/read/all")
+    let response = await fetch("/tests/read/all")
     let raw = await response.json() //.json() is aysnc
     let Questions = raw.slice(1,3) // I can adjust which question to be shown here
     count = Questions.length
@@ -89,7 +89,7 @@ async function submit() {
 
 async function storeInDatabase(nickname, score, yourAnswer) {
     let soldierdata = JSON.stringify({nickname: nickname, score: score})//The format is special, on internet will be 'content' as string
-    let response = await fetch("http://localhost:5000/soldiers/create", {method: "POST", body: soldierdata, headers: {"Content-type": "application/json"}}); 
+    let response = await fetch("/soldiers/create", {method: "POST", body: soldierdata, headers: {"Content-type": "application/json"}}); 
     //The response, need to parse it and find the id    
     let soliderResponse = await response.json()
     let soldierId = soliderResponse._id

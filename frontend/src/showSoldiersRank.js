@@ -19,7 +19,7 @@ export default async function showSoldiersRank() {
     
     
 //    try{
-    let response = await fetch("http://localhost:5000/soldiers/read/all")
+    let response = await fetch("/soldiers/read/all")
     let Soldiers = await response.json() //.json() is aysnc
     Soldiers.sort((a,b) => {return b.score - a.score})
     

@@ -16,6 +16,7 @@ var app = express();
 var mongoose = require("mongoose")
 //  if I want to try local: 1. start server 2. start T3 3. change url "mongodb://localhost:27017/fullStackWar"
 var mongoDBAtlasUrl = "mongodb+srv://jacklizeya:lixiaohua1967@fullstackwar.ukktn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 mongoose.connect(mongoDBAtlasUrl, { useNewUrlParser: true , useUnifiedTopology: true}).then(console.log("Connect to MongoDB atlas successfully!")).catch((error) => {console.log(error)})
 var fullStackWardb = mongoose.connection
 fullStackWardb.on("connected", ()=> {console.log("connected!")})
@@ -33,7 +34,9 @@ app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 //set up the frontend access
-app.use(express.static((process.env.NODE_ENV === "production")? ("./frontend/build") : (path.join(__dirname, 'public'))))
+//app.use(express.static((process.env.NODE_ENV === "production")? ("./frontend/build") : (path.join(__dirname, 'public'))))
+
+app.use(express.static(path.join(__dirname, './frontend/build')))
 
 
 

@@ -42,7 +42,7 @@ export default function App () {
 <input type="submit" onClick={test} value="Create new soldier by coding manually"/>                 
 async function test() {
   let soldierdata = JSON.stringify({nickname: "PIPI", score: 0})//The format is special, on internet will be 'content' as string
-  let response = await fetch("http://localhost:5000/soldiers/create", {method: "POST", body: soldierdata, headers: {"Content-type": "application/json"}}); 
+  let response = await fetch("/soldiers/create", {method: "POST", body: soldierdata, headers: {"Content-type": "application/json"}}); 
   //The response, need to parse it and find the id    
   let soliderResponse = await response.json()
   let soldierId = soliderResponse._id
