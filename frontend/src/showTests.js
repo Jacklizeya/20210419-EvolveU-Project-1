@@ -28,7 +28,9 @@ export default async function showTests() {
 //    try{  
     let response = await fetch("/tests/read/all")
     let raw = await response.json() //.json() is aysnc
-    let Questions = raw.slice(1,3) // I can adjust which question to be shown here
+//  randome sort the array and grab the first 5 questions    
+    let shuffled = raw.sort(() => 0.5 - Math.random)
+    let Questions = shuffled.slice(0,4) // I can adjust which question to be shown here
     count = Questions.length
     correctAnswer = Questions.map(question => question.correct)
     console.log(correctAnswer) 
