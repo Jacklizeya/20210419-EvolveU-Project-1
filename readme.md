@@ -3,3 +3,7 @@
 3. cd frontend, npm install
 4. Go to app.js, line 14 add your mongodb atlas credential
 5. go to localhost: 5000
+
+
+
+You can direclty access the project through https://fullstackwar.herokuapp.com/
